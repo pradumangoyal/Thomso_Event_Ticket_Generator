@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{{ participant }}{% endblock %}
+{% block content %}
+<h1># {{participant.id}}</h1>
+<p> <h2>Thomso Serial Key: </h2><h3>{{ participant.thomso_serial_key }}</h3></p>
+<p> <h2>Participant's Name: </h2><h3>{{ participant.name }}</h3></p>
+<p> <h2>Participant's College: </h2><h3>{{ participant.institution }}</h3></p>
+<p> <h2>Event: </h2><h3>{{ participant.event }}</h3></p>
+<br />
+<img src="{{ 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='|add:participant.thomso_serial_key }}">
+{% endblock %}

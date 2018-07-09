@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Register Entry{% endblock %}
+{% block content %}
+    <p>Hi {{ user.username }}</p>
+    {% if not user.is_superuser %}<p><strong>You haven't given admin permission so you can't make an entry ticket</strong></p>{% endif %}
+    <h1>Register Entry</h1>
+    <h3>{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}</h3>
+
+    <form action="{% url 'register:index' %}" method="post">
+    {% csrf_token %}
+    <label>Participant Name: <input type="text" name="name" required placeholder="Participant's Name"></label><br />
+    <label>Institute: <input type="text" name="institution" required placeholder="Participant's College"></label><br />
+    <label>Event: <input type="text" name="event" required placeholder="Event"></label><br />
+<input type="submit" value="Make Ticket" />
+<br />
+<a href="logout/">Logout</a>
+{% endblock %}
