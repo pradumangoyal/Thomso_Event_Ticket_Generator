@@ -21,13 +21,13 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'h1^rzalul!2nswp!@@c#*^ll)nbns&vkh^lc3fke)ag$zb^zbq'
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'eventinvite.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-'''
+
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'eventinvite',
@@ -86,10 +86,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
-'''
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+
 }
 
 
