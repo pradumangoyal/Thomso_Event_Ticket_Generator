@@ -1,11 +1,43 @@
-{% extends 'base.html' %}
-{% block title %}{{ participant }}{% endblock %}
-{% block content %}
-<h1># {{participant.id}}</h1>
-<p> <h2>Thomso Serial Key: </h2><h3>{{ participant.thomso_serial_key }}</h3></p>
-<p> <h2>Participant's Name: </h2><h3>{{ participant.name }}</h3></p>
-<p> <h2>Participant's College: </h2><h3>{{ participant.institution }}</h3></p>
-<p> <h2>Event: </h2><h3>{{ participant.event }}</h3></p>
-<br />
-<img src="{{ 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='|add:participant.thomso_serial_key }}">
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" media="print" />
+    <title>{{ participant.thomso_serial_key }}</title>
+</head>
+<body>
+    <div id="print">
+        <div id="flexbox">
+            <div>
+                <div class="type">THOMSO SERIAL KEY</div>
+                <div class="detail">{{ participant.thomso_serial_key }}</div>
+            </div>
+            <div>
+                <div class="type">PARICIPANT NAME</div>
+                <div class="detail">{{ participant.name }}</div>
+            </div>
+            <div>
+                <div class="type">COLLEGE</div>
+                <div class="detail">{{ participant.institution }}</div>
+            </div>
+            <div>
+                <div class="type">EVENT</div>
+                <div class="detail">{{ participant.event }}</div>
+            </div>
+            <div id="qr">
+                <img src="{{ 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='|add:participant.thomso_serial_key }}">
+            </div>
+            <div id="sponsor">
+                    <p>POWERED BY</p>
+                    <img src="{% static 'img/sponsor.png' %}">
+                </div>
+        </div>
+        
+    </div>
+<script>
+</script>
+</body>
+</html>

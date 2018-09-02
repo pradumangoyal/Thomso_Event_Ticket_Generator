@@ -1,6 +1,12 @@
-{% extends 'base.html' %}
-{% block title %}Register Entry{% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Register Entry</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+</head>
+<body>
     <p>Hi {{ user.username }}</p>
     {% if not user.is_superuser %}<p><strong>You haven't given admin permission so you can't make an entry ticket</strong></p>{% endif %}
     <h1>Register Entry</h1>
@@ -8,10 +14,40 @@
 
     <form action="{% url 'register:index' %}" method="post">
     {% csrf_token %}
-    <label>Participant Name: <input type="text" name="name" required placeholder="Participant's Name"></label><br />
-    <label>Institute: <input type="text" name="institution" required placeholder="Participant's College"></label><br />
-    <label>Event: <input type="text" name="event" required placeholder="Event"></label><br />
-<input type="submit" value="Make Ticket" />
+    <div class="row">
+            <div class="col-25">
+              <label for="name">Participant Name:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="name" required placeholder="Participant's Name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="institution">Institution</label>
+            </div>
+            <div class="col-75">
+                 <input type="text" name="institution" required placeholder="Participant's College">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="event">Event</label>
+            </div>
+            <div class="col-75">
+                <select name="event" required placeholder="Event">
+                    <option value="BATTLE OF BANDS">BATTLE OF BANDS</option>
+                    <option value="NUKKAD NATAK">NUKKAD NATAK</option>
+                    <option value="ABHIVYAKTI">ABHIVYAKTI</option>
+                    <option value="A(D)ESIGN">A(D)ESIGN</option>
+                </select>
+            </div>
+          </div>
+          <div class="row">
+                <input type="submit" value="Make Ticket" />
+        </div>      
+    </form>
 <br />
 <a href="logout/">Logout</a>
-{% endblock %}
+</body>
+</html>

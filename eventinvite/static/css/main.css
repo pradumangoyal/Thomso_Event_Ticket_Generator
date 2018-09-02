@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@page {
+    size: 595px 842px;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+body{
+    text-align: center;
+}
+#print{
+    width: 595px;
+    height: 842px;
+    margin: auto;
+    position: relative;
+    background: url('../img/bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-top: -50px;
+    -webkit-print-color-adjust: exact; 
+    border-radius: 25px;
+}
+#flexbox{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+#flexbox>div{
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    margin: 10px 0;
+    width: 100%;
+    padding: 0 10%;
+}
+#flexbox>div>div{
+    width: 50%;
+}
+#flexbox .type{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 15.36px;
+    color: #105A55;    
+    text-align: left;
+    padding: 10px 0;
+}
+#flexbox .detail{
+    height: 20px;
+    padding: 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 18px;
+    border: 0.25px solid #FFFFFF;
+    color: #FDFEFE;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#flexbox>#qr{
+    border: 0.25px solid #ffffff;
+    padding: 5px;
+    width: auto;
+}
+#flexbox>#qr img{
+    padding: 10px;
+    background: #FFFFFF;
+}
+
+#flexbox>#sponsor{
+    height: auto;
+    border: 0.25px solid #ffffff;
+    border-radius: 15px;
+    background: white;
+    padding: 5px;
+    width: 60%;
+    display: block;
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 10px;
+
+    color: #231F20;
+}
+#flexbox>#sponsor img{
+    height: 30px;
+    padding: 10px;
+    background: #FFFFFF;
+}

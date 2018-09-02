@@ -1,4 +1,5 @@
 import csv
+import datetime
 from django.http import HttpResponse
 from django.contrib import admin
 from .models import Participant
@@ -11,7 +12,7 @@ class ParticipantAdmin(admin.ModelAdmin):
         field_names = [field.name for field in meta.fields]
 
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
+        response['Content-Disposition'] = 'attachment; filename={}.csv'.format('Ticket_Data_{}_{}'.format(datetime.date.today(), datetime.datetime.now().time()))
         writer = csv.writer(response)
 
         writer.writerow(field_names)
